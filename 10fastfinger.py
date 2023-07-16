@@ -6,7 +6,10 @@ driver = webdriver.Chrome(path)
 
 driver.get("https://10fastfingers.com/advanced-typing-test/english")
 driver.maximize_window()
-time.sleep(10)
+
+Cookie_button = driver.find_element_by_id("CybotCookiebotDialogBodyButtonDecline")
+Cookie_button.click()
+time.sleep(3)
 while True:
     count = 0
     while True:
@@ -19,11 +22,17 @@ while True:
             t_time = 60 - t
             print(f'You wrote {count} words in {t_time} seconds!!')
             print(f'you average wpm was {(count * 60) / t_time}\n')
-            while True:
-                reload = driver.find_element_by_id('reload-btn')
-                reload.click()
-                time.sleep(5)
-                break
+            play = input('Do you want to test again?(y/n): ')
+            if play == 'y':
+                while True:
+                    reload = driver.find_element_by_id('reload-btn')
+                    reload.click()
+                    time.sleep(3)
+                    break
+            else:
+                driver.quit()
+                print('Thank you!')
+                exit()
             break
         else:
             words = driver.find_element_by_xpath('//*[@id="words"]')
