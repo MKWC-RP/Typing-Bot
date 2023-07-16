@@ -1,0 +1,3 @@
+To install the chromedriver, the chromedriver present in the repositry is of Chrome Version 114.0.5735.199.
+To check what Chrome Version, go to Chrome Settings, in About Chrome you will see the Chrome Version you have present.
+If your Chrome Version is older or newer than 114 then use this site to download the required chromedriver "https://chromedriver.chromium.org/downloads"
